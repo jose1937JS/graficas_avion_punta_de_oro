@@ -11,7 +11,7 @@
 |
 */
 
-Route::view('/', 'auth.login');
+Route::view('/', 'user.dashboard');
 
 Route::group(['middleware' => ['auth']], function() {
 
