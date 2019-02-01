@@ -35,17 +35,19 @@ class ProductController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $req)
 	{
 		$product = new Product();
 
-		$product->name        = $req->input('name');
-		$product->description = $req->input('description');
-		$product->quantity    = $req->input('quantity');
-		$product->price    	  = $req->input('price');
-		$product->category_id = $req->input('categoryid');
+		Product::create($req->all());
 
-		$product->save();
+		// $product->name        = $req->input('name');
+		// $product->description = $req->input('description');
+		// $product->quantity    = $req->input('quantity');
+		// $product->price    	  = $req->input('price');
+		// $product->category_id = $req->input('categoryid');
+
+		// $product->save();
 	}
 
 	/**
