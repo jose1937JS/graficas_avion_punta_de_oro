@@ -16,7 +16,7 @@ class SupplierController extends Controller
 	{
 		$supplier = Supplier::all();
 
-		dd($supplier);
+		return view('user.proveedores');
 	}
 
 	/**

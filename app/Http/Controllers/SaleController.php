@@ -17,7 +17,7 @@ class SaleController extends Controller
 	{
 		$sale = Sale::all();
 
-		dd($sale);
+		return view('user.ventas');
 	}
 
 	/**
