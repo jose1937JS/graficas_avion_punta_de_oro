@@ -26,7 +26,7 @@ class SupplierController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('user.addproveedor');
 	}
 
 	/**

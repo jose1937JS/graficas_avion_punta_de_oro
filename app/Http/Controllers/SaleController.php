@@ -27,7 +27,7 @@ class SaleController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('user.addventa');
 	}
 
 	/**

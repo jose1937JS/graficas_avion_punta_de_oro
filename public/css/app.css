@@ -16,3 +16,5 @@ body {
 .util-no-decoration {
     text-decoration: none;
 }
+
+.right { float: right; }

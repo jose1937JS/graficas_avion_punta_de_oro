@@ -3,10 +3,28 @@
 @section('header-title', 'Ventas')
 
 @section('content')
-	<div class="mdl-grid demo-content">
-		<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-			<h4>Ventas</h4>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, qui porro. Nostrum animi, ad odit aperiam porro amet laboriosam sit itaque, beatae repudiandae esse, quis similique, minima asperiores officia dicta.
+
+	<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+		<div class="mdl-cell mdl-cell--12-col">
+			<h4>Ventas<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('ventas.create') }}"> Registrar venta</a></h4>
 		</div>
+
+		<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+			<thead>
+				<tr>
+					<th>Producto</th>
+					<th>Cantidad</th>
+					<th>Precio Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Banana</td>
+					<td>5</td>
+					<td>300 BsS</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-@stop
+
+@stop</h4>
