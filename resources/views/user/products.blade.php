@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('header-title', 'Productos')
+@section('header-title', 'Charcuteria El Avión de Punta de Oro')
 
 @section('content')
 
