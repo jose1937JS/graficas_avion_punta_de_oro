@@ -13,7 +13,7 @@
 
 Route::view('/', 'user.dashboard');
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group([], function() {
 
 	Route::resource('ventas', 'SaleController');
 	Route::resource('productos', 'ProductController');
