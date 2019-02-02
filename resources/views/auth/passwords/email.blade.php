@@ -1,47 +1,41 @@
-@extends('layouts.app')
+@include('includes.header')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<div class="mdl-grid">
+	<div class="mdl-card mdl-shadow--16dp util-center util-spacing-h--40px" style="width:400px;">
+		<div class="mdl-card__title mdl-color--orange-800">
+			<h2 class="mdl-card__title-text mdl-color-text--white">Reseteo de contraseña</h2>
+		</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+		<div style="padding: 20px 30px">
 
-                    <form method="POST" action="{{ route('password.email') }}" aria-label="{{ __('Reset Password') }}">
-                        @csrf
+			@if (session('status'))
+				<p>{{ session('status') }}</p>
+			@endif
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+			<form method="POST" action="{{ route('password.email') }}" aria-label="{{ __('Reset Password') }}">
+				@csrf
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
+					<label for="email" class="mdl-textfield__label mdl-color-text--grey">{{ __('Correo Electrónico') }}</label>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+					<input id="email" type="email" class="mdl-textfield__input {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+					@if ($errors->has('email'))
+						<strong class="mdl-color-text--accent">{{ $errors->first('email') }}</strong>
+					@endif
+				</div>
+
+				<div class="form-group row mb-0">
+					<div class="col-md-6 offset-md-4">
+						<button type="submit" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored mdl-color--primary">
+							{{ __('Enviar') }}
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
 </div>
-@endsection
+
+@include('includes.footer')
