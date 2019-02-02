@@ -86,10 +86,22 @@
 		    var myChart = Highcharts.chart('grafica1', {
 		        chart: {
 		            type: 'pie',
-		            name: "Pene"
 		        },
+		        plotOptions: {
+	                pie: {
+	                    allowPointSelect: true,
+	                    cursor: 'pointer',
+	                    dataLabels: {
+	                        enabled: true,
+	                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+	                        style: {
+	                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+	                        }
+	                    }
+	                }
+	            },
 		        title: {
-		            text: 'Fruit Consumption'
+		            text: 'Uso de navegadores'
 		        },
 		        xAxis: {
 		            categories: ['Apples', 'Bananas', 'Oranges']
@@ -100,12 +112,17 @@
 		            }
 		        },
 		        series: [{
-		            name: 'Jane',
-		            data: [1, 0, 4]
-		        }, {
-		            name: 'John',
-		            data: [5, 7, 3]
-		        }]
+			        name: 'Marca',
+			        colorByPoint: true,
+			        data: [{
+			            name: 'Chrome',
+			            y: 60.0,
+			        },
+			        {
+			        	name: 'Firefox',
+			        	y:40.0,
+			        }]
+		       	}]
 		    });
 		});
 	</script>
