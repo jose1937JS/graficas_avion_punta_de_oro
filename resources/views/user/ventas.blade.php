@@ -2,11 +2,19 @@
 
 @section('header-title', 'Ventas')
 
+@section('css')
+	<style>
+		a {
+			margin-left: 10px;
+		}
+	</style>
+@stop
+
 @section('content')
 
 	<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col">
-			<h4>Ventas<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('ventas.create') }}"> Registrar venta</a></h4>
+			<h4>Ventas<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('ventas.create') }}"> Registrar venta</a> <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--default right mdl-js-ripple-effect" href="{{ route('ventas.pdf') }}"> Descargar Reporte</a></h4></h4>
 		</div>
 
 		@include('includes.message')

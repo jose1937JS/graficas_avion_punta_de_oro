@@ -15,9 +15,17 @@ Route::view('/', 'user.dashboard');
 
 Route::group(['middleware' => 'auth'], function() {
 
+	Route::get('ventas/reporte', 'SaleController@reportePdf')->name('ventas.pdf');
 	Route::resource('ventas', 'SaleController');
+
+
+	Route::get('productos/reporte', 'ProductController@reportePdf')->name('productos.pdf');
 	Route::resource('productos', 'ProductController');
+
+	Route::get('proveedores/reporte', 'SupplierController@reportePdf')->name('proveedores.pdf');
 	Route::resource('proveedores', 'SupplierController');
+
+
 	Route::resource('categorias', 'CategoryController');
 
 });

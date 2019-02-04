@@ -2,11 +2,17 @@
 
 @section('header-title', 'Proveedores')
 
+<style>
+	a {
+		margin-left: 10px;
+	}
+</style>
+
 @section('content')
 
 	<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col">
-			<h4>Proveedores<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('proveedores.create') }}"> Registrar proveedor</a></h4>
+			<h4>Proveedores<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('proveedores.create') }}"> Registrar proveedor</a> <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--default right mdl-js-ripple-effect" href="{{ route('proveedores.pdf') }}"> Descargar Reporte</a></h4></h4></h4>
 		</div>
 
 		@include('includes.message')

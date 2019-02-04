@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sale;
 use App\Product;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class SaleController extends Controller
 {
@@ -62,6 +64,15 @@ class SaleController extends Controller
 	public function show($id)
 	{
 		//
+	}
+
+	public function reportePdf()
+	{
+		$sales = Sale::all(); 
+
+        $pdf = PDF::loadView('reports.sales', compact('sales'));
+
+        return $pdf->download('listado_ventas.pdf');
 	}
 
 	/**

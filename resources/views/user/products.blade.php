@@ -2,11 +2,18 @@
 
 @section('header-title', 'Charcuteria El Avión de Punta de Oro')
 
-@section('content')
+@section('css')
+	<style>
+		a {
+			margin-left: 10px;
+		}
+	</style>
+@stop
 
+@section('content')
 	<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col">
-			<h4>Productos<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('productos.create') }}"> Añadir producto</a></h4>
+			<h4>Productos<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('productos.create') }}"> Añadir producto</a> <a class="mdl-button mdl-js-button mdl-button--raised mdl-button--default right mdl-js-ripple-effect" href="{{ route('productos.pdf') }}"> Descargar Reporte</a></h4>
 		</div>
 
 		@include('includes.message')

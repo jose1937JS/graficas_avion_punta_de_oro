@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Supplier;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class SupplierController extends Controller
 {
@@ -62,6 +64,15 @@ class SupplierController extends Controller
 	public function show($id)
 	{
 		//
+	}
+
+	public function reportePdf()
+	{
+		$proveedores = Supplier::all(); 
+
+        $pdf = PDF::loadView('reports.proveedores', compact('proveedores'));
+
+        return $pdf->download('listado_proveedores.pdf');
 	}
 
 	/**
