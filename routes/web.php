@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::resource('ventas', 'SaleController');
 	Route::resource('productos', 'ProductController');
 	Route::resource('proveedores', 'SupplierController');
+	Route::resource('categorias', 'CategoryController');
 
 });
 

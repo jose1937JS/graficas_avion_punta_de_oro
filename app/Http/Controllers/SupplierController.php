@@ -14,9 +14,9 @@ class SupplierController extends Controller
 	 */
 	public function index()
 	{
-		$supplier = Supplier::all();
+		$proveedores = Supplier::all();
 
-		return view('user.proveedores');
+		return view('user.proveedores', compact('proveedores'));
 	}
 
 	/**
@@ -35,7 +35,7 @@ class SupplierController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $req)
 	{
 		$supplier = new Supplier();
 
@@ -46,6 +46,11 @@ class SupplierController extends Controller
 		$supplier->rif     = $req->input('rif');
 
 		$supplier->save();
+
+		\Session::flash('message', 'Proveedor registrado con exito');
+
+		return redirect()->route('proveedores.index');
+
 	}
 
 	/**
@@ -67,7 +72,9 @@ class SupplierController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		$proveedor = Supplier::findOrFail($id);
+
+		return view('user.editproveedores', compact('proveedor'));
 	}
 
 	/**
@@ -77,7 +84,7 @@ class SupplierController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $req, $id)
 	{
 		$supplier = Supplier::find($id);
 
@@ -88,6 +95,11 @@ class SupplierController extends Controller
 		$supplier->rif     = $req->input('rif');
 
 		$supplier->save();
+
+
+		\Session::flash('message', 'Proveedor modificado con exito');
+
+		return redirect()->route('proveedores.index');
 	}
 
 	/**
@@ -101,5 +113,9 @@ class SupplierController extends Controller
 		$supplier = Supplier::find($id);
 
 		$supplier->delete();
+
+		\Session::flash('message', 'Proveedor eliminado con exito');
+
+		return redirect()->route('proveedores.index');
 	}
 }

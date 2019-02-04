@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Sale;
+use App\Product;
 
 class SaleController extends Controller
 {
@@ -15,9 +15,9 @@ class SaleController extends Controller
 	 */
 	public function index()
 	{
-		$sale = Sale::all();
+		$sales = Sale::all();
 
-		return view('user.ventas');
+		return view('user.ventas', compact('sales'));
 	}
 
 	/**
@@ -27,7 +27,9 @@ class SaleController extends Controller
 	 */
 	public function create()
 	{
-		return view('user.addventa');
+		$products = Product::all();
+
+		return view('user.addventa', compact('products'));
 	}
 
 	/**
@@ -36,15 +38,19 @@ class SaleController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $req)
 	{
 		$sale = new Sale();
 
 		$sale->quantity    = $req->input('quantity');
 		$sale->total_price = $req->input('total_price');
-		$sale->product_id  = $req->input('productid');
+		$sale->product_id  = $req->input('product_id');
 
 		$sale->save();
+
+		\Session::flash('message', 'Venta registrada con exito');
+
+		return redirect()->route('ventas.index');
 	}
 
 	/**
@@ -55,9 +61,7 @@ class SaleController extends Controller
 	 */
 	public function show($id)
 	{
-		$sale = Sale::find($id);
-
-		dd($sale);
+		//
 	}
 
 	/**
@@ -68,7 +72,10 @@ class SaleController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		$sale = Sale::findorFail($id);
+		$products = Product::all();
+
+		return view('user.editventa', compact('sale', 'products'));
 	}
 
 	/**
@@ -78,15 +85,19 @@ class SaleController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $req, $id)
 	{
 		$sale = Sale::find($id);
 
 		$sale->quantity    = $req->input('quantity');
 		$sale->total_price = $req->input('total_price');
-		$sale->product_id  = $req->input('productid');
+		$sale->product_id  = $req->input('product_id');
 
 		$sale->save();
+
+		\Session::flash('message', 'Venta modificada con exito');
+
+		return redirect()->route('ventas.index');
 	}
 
 	/**
@@ -100,5 +111,9 @@ class SaleController extends Controller
 		$sale = Sale::find($id);
 
 		$sale->delete();
+
+		\Session::flash('message', 'Venta eliminada con exito');
+
+		return redirect()->route('ventas.index');
 	}
 }

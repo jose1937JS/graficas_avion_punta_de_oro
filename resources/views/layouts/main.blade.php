@@ -30,6 +30,7 @@
     -->
 
     <link href="{{ asset('fonts/iconfont/material-icons.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('css')
   </head>
@@ -70,9 +71,16 @@
           <a class="mdl-navigation__link" href="{{ route('ventas.index') }}">
             <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assessment</i>Ventas
           </a>
-          <a class="mdl-navigation__link" href="{{ route('logout') }}">
+          <a class="mdl-navigation__link" href="{{ route('categorias.index') }}">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Categorias
+          </a>
+          <a href="{{ route('logout') }}" class="mdl-navigation__link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">power_settings_new</i>Salir
           </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         </nav>
       </div>
       <main class="mdl-layout__content mdl-color--grey-100">
@@ -128,6 +136,7 @@
       </svg>
     <script src="{{ asset('js/material.min.js') }}"></script>
     <script src="{{ asset('js/highcharts.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     @yield('js')
   </body>
 </html>
