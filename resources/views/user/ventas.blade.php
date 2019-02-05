@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('header-title', 'Ventas')
+@section('header-title', 'Charcuteria El Avión de Punto de Oro')
 
 @section('css')
 	<style>
@@ -23,8 +23,8 @@
 			<thead>
 				<tr>
 					<th>Producto</th>
-					<th>Cantidad</th>
-					<th>Precio Total</th>
+					<th>Cantidad (Kg/Lts)</th>
+					<th>Precio Total (BsS)</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>

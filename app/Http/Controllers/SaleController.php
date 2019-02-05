@@ -45,7 +45,7 @@ class SaleController extends Controller
 		$sale = new Sale();
 
 		$sale->quantity    = $req->input('quantity');
-		$sale->total_price = $req->input('total_price');
+		$sale->total_price = $req->input('total_price') * $req->input('quantity');
 		$sale->product_id  = $req->input('product_id');
 
 		$sale->save();
@@ -68,7 +68,7 @@ class SaleController extends Controller
 
 	public function reportePdf()
 	{
-		$sales = Sale::all(); 
+		$sales = Sale::all();
 
         $pdf = PDF::loadView('reports.sales', compact('sales'));
 
@@ -101,7 +101,7 @@ class SaleController extends Controller
 		$sale = Sale::find($id);
 
 		$sale->quantity    = $req->input('quantity');
-		$sale->total_price = $req->input('total_price');
+		$sale->total_price = $req->input('total_price') * $req->input('quantity');
 		$sale->product_id  = $req->input('product_id');
 
 		$sale->save();

@@ -59,7 +59,7 @@
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="{{ url('/') }}">
+          <a class="mdl-navigation__link" href="{{ url('/home') }}">
             <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Inicio
           </a>
           <a class="mdl-navigation__link" href="{{ route('productos.index') }}">
@@ -134,9 +134,11 @@
           </g>
         </defs>
       </svg>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/material.min.js') }}"></script>
     <script src="{{ asset('js/highcharts.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/exporting.js') }}"></script>
+    <script src="{{ asset('js/export-data.js') }}"></script>
     @yield('js')
   </body>
 </html>

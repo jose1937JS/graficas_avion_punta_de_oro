@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('header-title', 'Charcuteria El Avión de Punta de Oro')
+@section('header-title', 'Charcuteria El Avión de Punto de Oro')
 
 @section('content')
 
@@ -43,7 +43,7 @@
 				<label class="mdl-textfield__label" for="price">Precio ejm: 200.00</label>
 				<span class="mdl-textfield__error">Precio inválido</span>
 			</div>
-			
+
 			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Guardar</button>
 		</form>
 

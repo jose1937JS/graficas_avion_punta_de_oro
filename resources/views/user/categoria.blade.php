@@ -1,20 +1,20 @@
 @extends('layouts.main')
 
-@section('header-title', 'Categorias')
+@section('header-title', 'Charcuteria El Avión de Punto de Oro')
 
 @section('content')
 <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 	<div class="mdl-cell mdl-cell--12-col">
 		<h4>Categorias<a class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary right mdl-js-ripple-effect" href="{{ route('categorias.create') }}"> Añadir categoria</a></h4>
 	</div>
-	
+
 	@include('includes.message')
 
 	<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col" id="myTable">
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Nombre</th>
+				<th>Categoria</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>

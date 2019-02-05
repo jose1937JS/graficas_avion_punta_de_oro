@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('header-title', 'Proveedores')
+@section('header-title', 'Charcuteria El Avión de Punto de Oro')
 
 @section('content')
 
@@ -17,7 +17,7 @@
 				<span class="mdl-textfield__error">El nombre del proveedor es inválido</span>
 			</div>
 			<div class="mdl-textfield mdl-cell mdl-cell--6-col mdl-js-textfield mdl-textfield--floating-label">
-				<input class="mdl-textfield__input" type="text" id="price" placeholder="J-0000000000" name="rif" pattern="^(J|G)-[\d]{9,10}$">
+				<input class="mdl-textfield__input" type="text" id="price" placeholder="J-0000000000" name="rif" pattern="^(J|G|V)-[\d]{8,10}$">
 				<label class="mdl-textfield__label" for="price">RIF</label>
 				<span class="mdl-textfield__error">El RIF es inválido</span>
 			</div>
