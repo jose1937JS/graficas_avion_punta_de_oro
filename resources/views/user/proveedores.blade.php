@@ -40,14 +40,16 @@
 							<a href="{{ route('proveedores.edit', $proveedor->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
 							  <i class="material-icons">edit</i>
 							</a>
-							<a href="{{ route('proveedores.destroy', $proveedor->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="event.preventDefault(); alert('¿Seguro que desea eliminar este registro?'); document.getElementById('delete-form').submit();">
-							  <i class="material-icons">delete</i>
-							</a>
+							@if(auth()->user()->isRole('administrador'))
+								<a href="{{ route('proveedores.destroy', $proveedor->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="event.preventDefault(); alert('¿Seguro que desea eliminar este registro?'); document.getElementById('delete-form{{ $proveedor->id }}').submit();">
+								  <i class="material-icons">delete</i>
+								</a>
 
-							<form id="delete-form" action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display: none;">
-								{{ method_field('DELETE') }}
-		            			@csrf
-		          			</form>
+								<form id="delete-form{{ $proveedor->id }}" action="{{ route('proveedores.destroy', $proveedor->id) }}" method="POST" style="display: none;">
+									{{ method_field('DELETE') }}
+			            			@csrf
+			          			</form>
+		          			@endif
 						</td>
 					</tr>
 				@endforeach

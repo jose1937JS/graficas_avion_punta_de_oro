@@ -17,5 +17,13 @@ class UserSeeder extends Seeder
         	'email' => 'admin@admin.com',
         	'password' => bcrypt('admin'), // admin
         ]);
+        $encargado = User::create([
+            'name' => 'encargado',
+            'email' => 'encargado@encargado.com',
+            'password' => bcrypt('encargado'), // encargado
+        ]);
+
+        $admin->assignRole('administrador');
+        $encargado->assignRole('encargado');
     }
 }

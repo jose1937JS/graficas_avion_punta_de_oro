@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
+use Caffeinated\Shinobi\Models\Role;
 
 class RoleSeeder extends Seeder
 {
@@ -12,6 +12,14 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $admin = Role::create(['name' => 'administrador']);
+        Role::create([
+        	'name'    => 'administrador',
+        	'slug'    => 'administrador',
+        	'special' => 'all-access'
+        ]);
+        Role::create([
+        	'name'    => 'encargado',
+        	'slug'    => 'encargado',
+        ]);
     }
 }

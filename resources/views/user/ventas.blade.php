@@ -38,14 +38,16 @@
 						<a href="{{ route('ventas.edit', $sale->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
 						  <i class="material-icons">edit</i>
 						</a>
-						<a href="{{ route('ventas.destroy', $sale->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="event.preventDefault(); alert('¿Seguro que desea eliminar este registro?'); document.getElementById('delete-form').submit();">
-						  <i class="material-icons">delete</i>
-						</a>
+						@if(auth()->user()->isRole('administrador'))
+							<a href="{{ route('ventas.destroy', $sale->id) }}" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" onclick="event.preventDefault(); alert('¿Seguro que desea eliminar este registro?'); document.getElementById('delete-form{{ $sale->id }}').submit();">
+							  <i class="material-icons">delete</i>
+							</a>
 
-						<form id="delete-form" action="{{ route('ventas.destroy', $sale->id) }}" method="POST" style="display: none;">
-							{{ method_field('DELETE') }}
-	            			@csrf
-	          			</form>
+							<form id="delete-form{{ $sale->id }}" action="{{ route('ventas.destroy', $sale->id) }}" method="POST" style="display: none;">
+								{{ method_field('DELETE') }}
+		            			@csrf
+		          			</form>
+	          			@endif
 					</td>
 				</tr>
 			@endforeach
