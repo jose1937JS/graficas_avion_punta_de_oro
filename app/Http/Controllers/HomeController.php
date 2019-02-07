@@ -9,6 +9,8 @@ use App\Product;
 use App\Sale;
 use App\Supplier;
 
+use Carbon\Carbon;
+
 class HomeController extends Controller
 {
     /**
@@ -38,5 +40,32 @@ class HomeController extends Controller
                 ->with('proveedores', $suppliers)
                 ->with('ventas', $sales)
                 ->with('ganancias', $earnings);
+    }
+
+    public function weekly_sales(Request $request)
+    {
+        $data = [];
+        $categories = Category::all();
+
+        $datefrom = Carbon::now();
+        $dateto = Carbon::now()->addWeek();
+
+        $datefrom = $datefrom->format('Y-m-d');
+        $dateto = $dateto->format('Y-m-d');
+        
+        $sales = Sale::whereBetween('created_at', array($datefrom, $dateto))->get();
+
+        foreach ($categories as $key => $category) {
+            $query = Sale::whereHas('product', function ($query) use($category) {
+                $query->where('category_id', $category->id);
+            })->get();
+
+            $data[$key] = [
+                'name' => $category->category,
+                'data' => $query
+            ];
+        }
+
+        return response()->json($data);
     }
 }
