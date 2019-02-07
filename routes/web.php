@@ -34,4 +34,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/weekly_sales', 'HomeController@weekly_sales')->name('home.weekly_sales');
+
 Auth::routes();
