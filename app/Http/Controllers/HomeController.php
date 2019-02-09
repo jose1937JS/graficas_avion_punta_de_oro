@@ -45,14 +45,17 @@ class HomeController extends Controller
     public function weekly_sales(Request $request)
     {
         $data = [];
+        $result = [];
         $categories = Category::all();
 
-        $datefrom = Carbon::now();
-        $dateto = Carbon::now()->addWeek();
+        $datefrom = new Carbon($request->from);
+
+        $dateto = new Carbon($request->from);
+        $dateto = $dateto->addWeek();
 
         $datefrom = $datefrom->format('Y-m-d');
         $dateto = $dateto->format('Y-m-d');
-        
+
         $sales = Sale::whereBetween('created_at', array($datefrom, $dateto))->get();
 
         foreach ($categories as $key => $category) {
@@ -62,7 +65,7 @@ class HomeController extends Controller
 
             $data[$key] = [
                 'name' => $category->category,
-                'data' => $query
+                'datos' => $query,
             ];
         }
 

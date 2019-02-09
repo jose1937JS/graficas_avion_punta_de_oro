@@ -127,9 +127,9 @@
       </svg>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/material.min.js') }}"></script>
-    <script src="{{ asset('js/highcharts.js') }}"></script>
-    <script src="{{ asset('js/exporting.js') }}"></script>
-    <script src="{{ asset('js/export-data.js') }}"></script>
+    <script src="{{ asset('js/chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/canvas-toBlob.js') }}"></script>
+    <script src="{{ asset('js/FileSaver.min.js') }}"></script>
     @yield('js')
   </body>
 </html>
