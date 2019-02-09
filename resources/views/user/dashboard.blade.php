@@ -78,13 +78,6 @@
 		.done((data) => {
 
 			var ctx = document.getElementById("line").getContext("2d");
-			var result = [];
-
-			for (var i = 0; i <= data.length; i++)
-			{
-				result[i] = data[i]['quantity'];
-			}
-			console.log(result);
 
 			var chartLine = new Chart(ctx, {
 				type : 'line',

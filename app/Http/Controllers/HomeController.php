@@ -45,7 +45,7 @@ class HomeController extends Controller
     public function weekly_sales(Request $request)
     {
         $data = [];
-        $result = [];
+        $result = 0;
         $categories = Category::all();
 
         $datefrom = new Carbon($request->from);
@@ -63,9 +63,11 @@ class HomeController extends Controller
                 $query->where('category_id', $category->id);
             })->get();
 
+            $result = $query->sum('quantity');
+
             $data[$key] = [
                 'name' => $category->category,
-                'datos' => $query,
+                'datos' => $result,
             ];
         }
 
