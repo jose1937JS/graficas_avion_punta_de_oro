@@ -10,11 +10,11 @@ class Product extends Model
 
     public function sale()
     {
-    	return $this->hasOne(Sale::class);
+    	return $this->hasMany(Sale::class);
     }
 
     public function category()
     {
     	return $this->belongsTo(Category::class);
-    } 
+    }
 }

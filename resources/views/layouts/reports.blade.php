@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Charcuteria "El Avión de Punta de Oro"</title>
+		<title>Charcuteria "El Avión de Punto de Oro"</title>
 		<style>
 			table {
 			  border-collapse: collapse;
@@ -22,7 +22,7 @@
 	</head>
 	<body>
 		<div width=100% style="text-align: left;">
-			<h1>Charcuteria "El Avión de Punta de Oro"</h1>
+			<h1>Charcuteria "El Avión de Punto de Oro"</h1>
 			<p>Av. 5 Julio, Cagua, Edo. Aragua</p>
 			<p>J-123456789</p>
 			<p>0244-3965355 - 0244-3961337</p>
